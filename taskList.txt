@@ -1,0 +1,44 @@
+- Make bouncing letters
+- Add effect when clicking on bouncing letter
+- Bouncing letters disappear
+- When all letters disappear the title as a whole appears and then reset
+
+
+-- Title Acrostic --
+
+T : 
+H :
+E :
+
+H :
+I :
+T :
+C :
+H :
+
+H :
+I :
+K :
+E :
+R :
+S :
+
+G :
+U :
+I :
+D :
+E :
+
+T :
+O :
+
+T :
+H :
+E :
+
+G :
+A :
+L :
+A :
+X :
+Y :
