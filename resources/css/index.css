@@ -1,0 +1,94 @@
+#starContainer{
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background: black;
+    overflow: hidden;
+}
+
+#welcomeMsg{
+    color: red;
+    font-family:monospace;
+    font-size: clamp(3vw, 30px, 50px);
+    text-shadow: 0px 0px 30px red;
+    filter: blur(0.5px);
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -1000px);
+
+    animation: 
+    flyInFromTop 3s cubic-bezier(.13,1.13,.01,1) forwards, 
+    shimmer 3s linear infinite;
+}
+.stars {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: fadeOut 5s linear;
+    opacity: 1;
+}
+
+
+@keyframes fadeOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes flyInFromTop {
+    0% {
+        opacity: 0;
+        text-shadow: 0px 0px 0px red;
+    }
+
+    50% {
+        opacity: 0.7;
+        text-shadow: 0px 0px 10px red;
+        transform: translateY(0%);
+        transform: translateX(-50%);
+    }
+
+    100% {
+        text-shadow: 0px 0px 30px red;
+        transform: translateY(0%);
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        text-shadow: 0px 0px 0px red
+    }
+
+    20% {
+        text-shadow: 0px 0px 20px red
+    }
+
+    40% {
+        text-shadow: 0px 0px 30px red
+    }
+
+    60% {
+        text-shadow: 0px 0px 0px red
+    }
+
+    80% {
+        text-shadow: 0px 0px 20px red
+    }
+
+    100% {
+        text-shadow: 0px 0px 0px red
+    }
+}
