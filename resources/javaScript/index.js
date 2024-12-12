@@ -1,36 +1,37 @@
-const numStars = 150; // Adjust number of stars here
-const starContainer = document.getElementById('starContainer');
+// Select the letter element
+const letter = document.getElementById("letter");
 
-for (let i = 0; i < 150; i++) { // Generate 150 stars
-    const star = document.createElement('div');
-    star.className = 'stars'; // Match the corrected CSS class
-    star.style.width = `${Math.random() * 3 + 1}px`; // 1-4px size
-    star.style.height = star.style.width; // Circular stars
-    star.style.top = `${Math.random() * window.innerHeight}px`;
-    star.style.left = `${Math.random() * window.innerWidth}px`;
-    star.style.animationDelay = `${Math.random() * 2}s`; // Random twinkle delay
+// Variables to track dragging state
+let isDragging = false;
+let offsetX, offsetY;
 
-    starContainer.appendChild(star);
-}
+// Add event listeners
+letter.addEventListener("mousedown", (e) => {
+    isDragging = true;
 
+    // Calculate the offset between the mouse position and the top-left corner of the letter
+    offsetX = e.clientX - letter.offsetLeft;
+    offsetY = e.clientY - letter.offsetTop;
 
+    // Add a class to indicate dragging (optional for styling)
+    letter.className = 'dragging'
+});
 
- // Adjust stars on window resize
- window.addEventListener('resize', () => {
-    document.querySelectorAll('.star').forEach(star => star.remove());
-    for (let i = 0; i < numStars; i++) {
-        const star = document.createElement('div');
-        star.classList.add('stars');
+document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+        // Calculate the new position of the letter
+        const x = e.clientX - offsetX;
+        const y = e.clientY - offsetY;
 
-        const size = Math.random() * 2 + 1;
-        star.style.width = `${size}px`;
-        star.style.height = `${size}px`;
-        star.style.color = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
-        star.style.top = `${Math.random() * window.innerHeight}px`;
-        star.style.left = `${Math.random() * window.innerWidth}px`;
-
-        star.style.animationDelay = `${Math.random() * 2}s`;
-
-        starContainer.appendChild(star);
+        // Update the letter's position
+        letter.style.left = `${x}px`;
+        letter.style.top = `${y}px`;
     }
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+
+    // Remove the dragging class
+    letter.classList.remove("dragging");
 });
