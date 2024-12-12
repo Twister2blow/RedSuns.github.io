@@ -15,6 +15,7 @@ letter.addEventListener("mousedown", (e) => {
 
     // Add a class to indicate dragging (optional for styling)
     letter.className = 'dragging'
+
 });
 
 document.addEventListener("mousemove", (e) => {
@@ -26,6 +27,8 @@ document.addEventListener("mousemove", (e) => {
         // Update the letter's position
         letter.style.left = `${x}px`;
         letter.style.top = `${y}px`;
+
+        
     }
 });
 
@@ -34,4 +37,7 @@ document.addEventListener("mouseup", () => {
 
     // Remove the dragging class
     letter.classList.remove("dragging");
+
+    // Reset box shadow
+    letter.style.boxShadow = `5px 5px 10px rgba(0, 0, 0, 0.8)`
 });
